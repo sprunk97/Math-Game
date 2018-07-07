@@ -1,0 +1,56 @@
+﻿<Window x:Class="MathGame.Result"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MathGame"
+        mc:Ignorable="d"
+        Title="Result" WindowStartupLocation="Manual" ShowInTaskbar="False" SizeToContent="WidthAndHeight" WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground">
+                <Setter.Value>
+                    <SolidColorBrush Color="#043255"></SolidColorBrush>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="0"
+                                BorderBrush="#043255"
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="False">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#164D78"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+                <EventTrigger RoutedEvent="Click">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation To="#B5D1E7" 
+                                    Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                            AutoReverse="True"
+                                            Duration="0:0:0.1"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#043255" >
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="129" Margin="10,10,10,10" VerticalAlignment="Top" Width="268" Background="#B5D1E7">
+            <Button Content="Close" Height="24" Width="99" Margin="158,94,9,9" Click="Button_Click"/>
+        </Border>
+        <Label x:Name="ResultLabel" Content="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF371369" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="94" Width="268"/>
+    </Grid>
+</Window>
