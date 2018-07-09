@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using NLog;
 using CrashReporter;
 
 namespace MathGame
@@ -27,8 +26,6 @@ namespace MathGame
         {
             Exception ex = default(Exception);
             ex = (Exception)e.ExceptionObject;
-            var log = LogManager.GetLogger(typeof(System.Windows.Forms.Application).ToString());
-            log.Error(ex.Message + "\n" + ex.StackTrace);
             MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             var mail = new Sender("sprunk97@gmail.com", "sprunk97@gmail.com", "MathGame Exception");
             try
@@ -46,8 +43,6 @@ namespace MathGame
         {
             Exception ex = default(Exception);
             ex = e.Exception;
-            var log = LogManager.GetLogger(typeof(System.Windows.Forms.Application).ToString());
-            log.Error(ex.Message + "\n" + ex.StackTrace);
             MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
             var mail = new Sender("sprunk97@gmail.com", "sprunk97@gmail.com", "MathGame Exception");
             try
