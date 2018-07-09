@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media.Effects;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Threading;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Globalization;
 
 namespace MathGame
 {
@@ -79,7 +69,7 @@ namespace MathGame
 
         private void AnswerBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter && dispatcherTimer.IsEnabled && AnswerBox.Text != "")
+            if (e.Key == Key.Enter && dispatcherTimer.IsEnabled && AnswerBox.Text != "")
             {
                 game.CheckAnswer(double.Parse(AnswerBox.Text.Replace('.', ',')));
                 AnswersTable.Items.Add(new DataObject() { Answers = game.equations.Last().ToString() });

@@ -43,7 +43,7 @@ namespace MathGame
         /// <param name="userResult">User answer</param>
         public void CheckAnswer(double userResult)
         {
-            equations[equations.Count - 1].IsCorrect(userResult);
+            equations[equations.Count - 2].IsCorrect(userResult);
         }
 
         /// <summary>

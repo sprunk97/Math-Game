@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+using NLog;
+using CrashReporter;
 
 namespace MathGame
 {
@@ -13,5 +10,56 @@ namespace MathGame
     /// </summary>
     public partial class App : Application
     {
+        [STAThread]
+        public static void Main()
+        {
+            AppDomain currentDomain = default(AppDomain);
+            currentDomain = AppDomain.CurrentDomain;
+            currentDomain.UnhandledException += GlobalUnhandledExceptionHandler;
+            System.Windows.Forms.Application.ThreadException += GlobalThreadExceptionHandler;
+
+            var application = new App();
+            application.InitializeComponent();
+            application.Run();
+        }
+
+        private static void GlobalUnhandledExceptionHandler(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = default(Exception);
+            ex = (Exception)e.ExceptionObject;
+            var log = LogManager.GetLogger(typeof(System.Windows.Forms.Application).ToString());
+            log.Error(ex.Message + "\n" + ex.StackTrace);
+            MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            var mail = new Sender("sprunk97@gmail.com", "sprunk97@gmail.com", "MathGame Exception");
+            try
+            {
+                mail.SendReport(ex);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+            Environment.Exit(0);
+        }
+
+        private static void GlobalThreadExceptionHandler(object sender, System.Threading.ThreadExceptionEventArgs e)
+        {
+            Exception ex = default(Exception);
+            ex = e.Exception;
+            var log = LogManager.GetLogger(typeof(System.Windows.Forms.Application).ToString());
+            log.Error(ex.Message + "\n" + ex.StackTrace);
+            MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+            var mail = new Sender("sprunk97@gmail.com", "sprunk97@gmail.com", "MathGame Exception");
+            try
+            {
+                mail.SendReport(ex);
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            Environment.Exit(0);
+        }
     }
 }
