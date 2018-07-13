@@ -11,9 +11,6 @@ using MathGame.Enums;
 
 namespace MathGame
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private DispatcherTimer dispatcherTimer = new DispatcherTimer();
@@ -142,11 +139,6 @@ namespace MathGame
                 if (!Regex.IsMatch(AnswerBox.Text, @"^[0-9]*([,.]{1}[0-9]*)?$"))
                     AnswerBox.Text = "";
             }
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
