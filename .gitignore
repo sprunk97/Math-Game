@@ -8,13 +8,6 @@ packages/
 bin/
 obj/
 .git/
-chatBot.csproj
-chatBot.sln
-chatBot.VC.db
-chatBotTest.sln
-/chatBot/bin/
-/chatBot/obj/
-/chatBot/Properties/
 *.suo
 *.user
 *_i.c
@@ -42,4 +35,3 @@ chatBotTest.sln
 *.svclog
 *.scc
 *.db
-/Setup/Release/Release.rar.xyu
