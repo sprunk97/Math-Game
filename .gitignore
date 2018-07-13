@@ -6,9 +6,9 @@
 obj/
 packages/
 bin/
-Properties/Settings.Designer.cs
-Properties/Settings.settings
-App.config
+MathGame/Properties/Settings.Designer.cs
+MathGame/Properties/Settings.settings
+MathGame/App.config
 obj/
 .git/
 *.suo
