@@ -192,6 +192,6 @@
                 <RadioButton x:Name="rb4Dig" Content="4" Margin="10,0,0,-11" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23"/>
             </StackPanel>
         </GroupBox>
-        <Button Content="Scoreboard" HorizontalAlignment="Left" Margin="29,227,0,0" VerticalAlignment="Top" Width="99" Height="24" Click="Button_Click_1"/>
+        <Button Content="Scoreboard" HorizontalAlignment="Left" Margin="29,227,0,0" VerticalAlignment="Top" Width="99" Height="24"/>
     </Grid>
 </Window>
