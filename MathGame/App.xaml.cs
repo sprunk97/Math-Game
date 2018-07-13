@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Windows;
 using CrashReporter;
 
@@ -27,7 +28,8 @@ namespace MathGame
             Exception ex = default(Exception);
             ex = (Exception)e.ExceptionObject;
             MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
-            var mail = new Sender("sprunk97@gmail.com", "sprunk97@gmail.com", "MathGame Exception");
+            NetworkCredential credential = new NetworkCredential(MathGame.Properties.Settings.Default.email, MathGame.Properties.Settings.Default.email_password);
+            var mail = new Sender(credential, "sprunk97@gmail.com", "MathGame Exception", null, null);
             try
             {
                 mail.SendReport(ex);
@@ -44,7 +46,8 @@ namespace MathGame
             Exception ex = default(Exception);
             ex = e.Exception;
             MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
-            var mail = new Sender("sprunk97@gmail.com", "sprunk97@gmail.com", "MathGame Exception");
+            NetworkCredential credential = new NetworkCredential(MathGame.Properties.Settings.Default.email, MathGame.Properties.Settings.Default.email_password);
+            var mail = new Sender(credential, "sprunk97@gmail.com", "MathGame Exception", null, null);
             try
             {
                 mail.SendReport(ex);

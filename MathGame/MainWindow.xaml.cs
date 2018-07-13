@@ -7,6 +7,7 @@ using System.Windows.Media.Effects;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Threading;
+using MathGame.Enums;
 
 namespace MathGame
 {

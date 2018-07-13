@@ -1,15 +1,8 @@
 ﻿using System.Collections.Generic;
+using MathGame.Enums;
 
 namespace MathGame
 {
-    enum Operations
-    {
-        Addition,
-        Subtraction,
-        Multiplication,
-        Division
-    };
-
     class Game
     {
         public List<Equation> equations { get; private set; } = new List<Equation>();
