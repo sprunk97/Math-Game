@@ -6,6 +6,7 @@
 obj/
 packages/
 bin/
+Properties/
 obj/
 .git/
 *.suo
