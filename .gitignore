@@ -6,7 +6,9 @@
 obj/
 packages/
 bin/
-Properties/
+Properties/Settings.Designer.cs
+Properties/Settings.settings
+App.config
 obj/
 .git/
 *.suo
