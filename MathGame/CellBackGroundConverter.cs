@@ -20,4 +20,4 @@ namespace MathGame
             throw new NotSupportedException();
         }
     }
-} 
+}
